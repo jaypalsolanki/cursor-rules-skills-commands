@@ -1,0 +1,13 @@
+---
+description: Standardize cloud and CI/CD governance for delivery safety
+globs: **/*.{yml,yaml,tf,bicep,json,cs}
+alwaysApply: false
+---
+
+# Cloud And CI/CD Governance
+
+- Never hardcode secrets; use managed secret stores.
+- Enforce build, test, security scan, and artifact traceability in pipelines.
+- Apply environment-specific configuration through controlled promotion.
+- Require rollback strategy and health checks for production releases.
+- Tag cloud resources consistently by service, owner, and environment.

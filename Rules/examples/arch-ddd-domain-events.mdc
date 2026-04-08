@@ -1,0 +1,17 @@
+---
+description: Guide DDD aggregate modeling and domain event usage
+globs: **/*.cs
+alwaysApply: false
+---
+
+# DDD Aggregates And Domain Events
+
+- Keep invariants inside aggregates.
+- Mutations happen through aggregate methods, not external setters.
+- Emit domain events for meaningful business state transitions.
+- Keep value objects immutable and behavior-rich.
+
+## Example direction
+
+- `Order` aggregate raises `OrderSubmitted`.
+- Handler publishes integration event only after transaction success.

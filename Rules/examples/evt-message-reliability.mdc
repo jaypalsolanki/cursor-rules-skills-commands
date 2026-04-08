@@ -1,0 +1,18 @@
+---
+description: Ensure reliable event message processing for Kafka and RabbitMQ
+globs: **/*.{cs,yml,yaml,json}
+alwaysApply: false
+---
+
+# Event Message Reliability
+
+- Consumers must be idempotent.
+- Use retry with bounded backoff and dead-letter handling.
+- Persist processing checkpoints/offset intent safely.
+- Include message keys for ordering-sensitive streams.
+
+## Minimum checklist
+
+- [ ] Duplicate detection strategy documented
+- [ ] Poison message path defined
+- [ ] Observability metrics for consumer lag and failures

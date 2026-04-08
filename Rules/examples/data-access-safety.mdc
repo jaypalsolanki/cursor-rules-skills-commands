@@ -1,0 +1,19 @@
+---
+description: Enforce safe and efficient data access across SQL and NoSQL stores
+globs: **/*.{cs,sql,json}
+alwaysApply: false
+---
+
+# Data Access Safety
+
+- Use parameterized SQL only.
+- Avoid chatty database access; batch where possible.
+- Model partition strategy explicitly for CosmosDB/DynamoDB.
+- Create query-index alignment for MongoDB/CosmosDB.
+- Define consistency expectations per use case.
+
+## Quick checks
+
+- No string-concatenated SQL
+- Repository/query methods include cancellation token
+- Hot partitions identified and mitigated

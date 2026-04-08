@@ -1,0 +1,26 @@
+---
+description: Enforce resilient error handling and observability in APIs
+globs: **/*.cs
+alwaysApply: false
+---
+
+# API Error Handling And Observability
+
+- Do not swallow exceptions.
+- Return standardized error contracts (`ProblemDetails`).
+- Include correlation/trace IDs in logs and responses.
+- Use structured logging with contextual properties.
+
+## Good pattern
+
+```csharp
+try
+{
+    // business flow
+}
+catch (DomainException ex)
+{
+    _logger.LogWarning(ex, "Domain failure {@CorrelationId}", correlationId);
+    return Problem(title: "Domain validation failed", statusCode: 400);
+}
+```

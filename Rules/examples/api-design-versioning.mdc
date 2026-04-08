@@ -1,0 +1,21 @@
+---
+description: Enforce API design consistency and explicit versioning
+globs: **/*.{cs,http,json}
+alwaysApply: false
+---
+
+# API Design And Versioning
+
+- Use explicit versioning (`/api/v{version}` or equivalent version header strategy).
+- Keep contracts backward compatible within a version.
+- Use resource-oriented URIs and consistent HTTP semantics.
+- Validate request DTOs and return meaningful problem details payloads.
+
+## Example
+
+```csharp
+// Good: explicit versioning + typed result
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/orders")]
+public sealed class OrdersController : ControllerBase {}
+```

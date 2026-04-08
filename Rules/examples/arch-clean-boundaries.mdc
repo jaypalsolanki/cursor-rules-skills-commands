@@ -1,0 +1,18 @@
+---
+description: Enforce clean architecture dependency direction
+globs: **/*.cs
+alwaysApply: false
+---
+
+# Clean Architecture Boundaries
+
+- Domain layer does not depend on Infrastructure.
+- Application layer depends on Domain abstractions only.
+- Infrastructure implements ports/interfaces defined by Application/Domain.
+- Web/API layer orchestrates requests and delegates use-case execution.
+
+## Dependency rule
+
+Only depend inward:
+
+`Web -> Application -> Domain`
